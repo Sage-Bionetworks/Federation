@@ -11,7 +11,7 @@ library(survival)
 library(survcomp)
 library(MASS)
 
-###### these are the utility functions to write ##############
+###### these are the utility functions to write #############
 metabricTrainingData <- loadFederationMetabricTrainingData()
 metabricTestData1 <- loadFederationMetabricTestData1()
 metabricTestData2 <- loadFederationMetabricTestData2()
@@ -30,5 +30,8 @@ coxTest$customTrain(metabricTrainingData$exprData, metabricTrainingData$copyData
 metabricPredictions1 <- coxTest$customPredict(metabricTestData1$exprData, metabricTestData1$copyData,
                             metabricTestData1$clinicalFeaturesData)
 
-metabricPredictions1 <- coxTest$customPredict(micmaData$exprData, micmaData$copyData,
+metabricPredictions2 <- coxTest$customPredict(metabricTestData2$exprData, metabricTestData2$copyData,
+                                              metabricTestData2$clinicalFeaturesData)
+
+micmaPredictions <- coxTest$customPredict(micmaData$exprData, micmaData$copyData,
                                               micmaData$clinicalFeaturesData)

@@ -24,7 +24,7 @@ metabricTestData1 <- loadFederationMetabricTestData1()
 metabricTestData2 <- loadFederationMetabricTestData2()
 
 # Metabric training - MICMA testing
-MetabricTrainingData1 <- loadMetabricMicmaTrainingData()
+metabricTrainingData1 <- loadMetabricMicmaTrainingData()
 micmaData <- loadFederationMicmaData()
 
 

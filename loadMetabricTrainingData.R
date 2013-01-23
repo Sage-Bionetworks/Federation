@@ -27,7 +27,7 @@ loadMetabricTrainingData_federation <- function(){
   
   idClinicalSurvLayer <- "syn1589146"
   clinicalSurvLayer <- loadEntity(idClinicalSurvLayer)
-  metabricTrainingData$clinicalSurvData <- clinicalSurvLayer$objects[[1]]
+  metabricTrainingData$clinicalSurvData <- clinicalSurvLayer$objects$clinicalSurv_train
   
 
   return(metabricTrainingData)

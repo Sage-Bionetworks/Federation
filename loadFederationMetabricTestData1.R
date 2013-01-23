@@ -1,4 +1,4 @@
-#' Load test data for the metabric re-evaluation with MICMA dataset
+#' Load test data for the metabric re-evaluation with METABRIC 1
 #'
 #' Loads data for gene expression, copy number, clinical covariates and clinical survival times for the test dataset
 #' used to evlauate model scores.
@@ -12,18 +12,18 @@
 #' @author Adam Margolin and In Sock Jang
 #' @export
 
-loadFederationMicmaData <- function(loadSurvData=FALSE){
+loadFederationMetabricTestData1 <- function(loadSurvData=FALSE){
   metabricTestData <- list()
   
-  idExpressionLayer <- "syn1589708"
+  idExpressionLayer <- "syn1589199"
   expressionLayer <- loadEntity(idExpressionLayer)
   metabricTestData$exprData <- expressionLayer$objects[[1]]
   
-  idCopyLayer <- "syn1588686"
+  idCopyLayer <- "syn1589221"
   copyLayer <- loadEntity(idCopyLayer)
   metabricTestData$copyData <- copyLayer$objects[[1]]
   
-  idClinicalFeaturesLayer <- "syn1589906"
+  idClinicalFeaturesLayer <- "syn1589902"
   clinicalFeaturesLayer <- loadEntity(idClinicalFeaturesLayer)
   metabricTestData$clinicalFeaturesData <- clinicalFeaturesLayer$objects[[1]]@data
   

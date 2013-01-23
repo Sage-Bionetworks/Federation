@@ -76,22 +76,15 @@ covariates3<-pData(Clinic3)
 # Clinical Covariates intersection between Training and Testing(MICMA)
 A<-covariates[,intersect(names(covariates),names(covariates1))]
 Atest<-covariates1[,intersect(names(covariates),names(covariates1))]
-AA<-A[,c(7,8)]
-AAtest<-Atest[,c(7,8)]
-# Clinical Covariates intersection between Training and Testing(Metabric1)
 
+# Clinical Covariates intersection between Training and Testing(Metabric1)
 B<-covariates[,intersect(names(covariates),names(covariates2))]
 Btest<-covariates2[,intersect(names(covariates),names(covariates2))]
-
-BB<-B[,c(2,4,5)]
-BBtest<-Btest[,c(2,4,5)]
 
 # Clinical Covariates intersection between Training and Testing(Metabric2)
 C<-covariates[,intersect(names(covariates),names(covariates3))]
 Ctest<-covariates3[,intersect(names(covariates),names(covariates3))]
 
-CC<-C[,c(2,4,5)]
-CCtest<-Ctest[,c(2,4,5)]
 
 
 # only difference between previous Federation model submission was "Clinical Variates"
@@ -100,25 +93,22 @@ source("~/Federation/CoxphModel.R")
 
 #training
 coxTest<-CoxphModel$new()
-coxTest$customTrain(exprs(Exp),exprs(Copy),AA,SurvivalData)
-
+coxTest$customTrain(exprs(Exp),exprs(Copy),A,SurvivalData)
 # validation with MICMA
-P1<-coxTest$customPredict(exprs(Exp1),exprs(Copy1),AAtest)
+P1<-coxTest$customPredict(exprs(Exp1),exprs(Copy1),Atest)
 
 
 #training
 coxTest<-CoxphModel$new()
-coxTest$customTrain(exprs(Exp),exprs(Copy),BB,SurvivalData)
-
+coxTest$customTrain(exprs(Exp),exprs(Copy),B,SurvivalData)
 # validation with Metabric1
-P2<-coxTest$customPredict(exprs(Exp2),exprs(Copy2),BBtest)
+P2<-coxTest$customPredict(exprs(Exp2),exprs(Copy2),Btest)
 
 
 #training
 coxTest<-CoxphModel$new()
-coxTest$customTrain(exprs(Exp),exprs(Copy),CC,SurvivalData)
-
+coxTest$customTrain(exprs(Exp),exprs(Copy),C,SurvivalData)
 # validation with Metabric2
-P3<-coxTest$customPredict(exprs(Exp3),exprs(Copy3),CCtest)
+P3<-coxTest$customPredict(exprs(Exp3),exprs(Copy3),Ctest)
 
 

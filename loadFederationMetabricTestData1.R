@@ -26,12 +26,6 @@ loadFederationMetabricTestData1 <- function(loadSurvData=FALSE){
   idClinicalFeaturesLayer <- "syn1589902"
   clinicalFeaturesLayer <- loadEntity(idClinicalFeaturesLayer)
   metabricTestData$clinicalFeaturesData <- clinicalFeaturesLayer$objects[[1]]@data
-  
-  if(loadSurvData){
-    idClinicalSurvLayer <- "syn1589146"
-    clinicalSurvLayer <- loadEntity(idClinicalSurvLayer)
-    metabricTestData$clinicalSurvData <- clinicalSurvLayer$objects[[1]]
-  }
-  
+    
   return(metabricTestData)
 }

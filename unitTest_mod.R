@@ -17,7 +17,6 @@ source("~/SageGit/Sage-Bionetworks/Federation/loadFederationMetabricTestData2.R"
 source("~/SageGit/Sage-Bionetworks/Federation/loadFederationMicmaData.R")
 
 ###### these are the utility functions to write #############
-metabricTrainingData <- loadMetabricTrainingData_federation()
 metabricTestData1 <- loadFederationMetabricTestData1()
 metabricTestData2 <- loadFederationMetabricTestData2()
 micmaData <- loadFederationMicmaData()

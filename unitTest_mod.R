@@ -11,8 +11,13 @@ library(survival)
 library(survcomp)
 library(MASS)
 
+source("~/SageGit/Sage-Bionetworks/Federation/loadMetabricTrainingData.R")
+source("~/SageGit/Sage-Bionetworks/Federation/loadFederationMetabricTestData1.R")
+source("~/SageGit/Sage-Bionetworks/Federation/loadFederationMetabricTestData2.R")
+source("~/SageGit/Sage-Bionetworks/Federation/loadFederationMicmaData.R")
+
 ###### these are the utility functions to write #############
-metabricTrainingData <- loadFederationMetabricTrainingData()
+metabricTrainingData <- loadMetabricTrainingData_federation()
 metabricTestData1 <- loadFederationMetabricTestData1()
 metabricTestData2 <- loadFederationMetabricTestData2()
 micmaData <- loadFederationMicmaData()
@@ -20,7 +25,7 @@ micmaData <- loadFederationMicmaData()
 
 # only difference between previous Federation model submission was "Clinical Variates"
 # Coxph model is used for this unit test with new validation dataset
-source("~/Federation/CoxphModel.R")
+source("~/SageGit/Sage-Bionetworks/Federation/CoxphModel.R")
 
 # Metabric
 coxTest<-CoxphModel$new()

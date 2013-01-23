@@ -12,13 +12,19 @@ library(survcomp)
 library(MASS)
 
 source("~/SageGit/Sage-Bionetworks/Federation/loadMetabricTrainingData.R")
+source("~/SageGit/Sage-Bionetworks/Federation/loadMetabricMicmaTrainingData.R")
 source("~/SageGit/Sage-Bionetworks/Federation/loadFederationMetabricTestData1.R")
 source("~/SageGit/Sage-Bionetworks/Federation/loadFederationMetabricTestData2.R")
 source("~/SageGit/Sage-Bionetworks/Federation/loadFederationMicmaData.R")
 
 ###### these are the utility functions to write #############
+# Metabric training - Metabric testing
+metabricTrainingData <- loadMetabricTrainingData() 
 metabricTestData1 <- loadFederationMetabricTestData1()
 metabricTestData2 <- loadFederationMetabricTestData2()
+
+# Metabric training - MICMA testing
+MetabricTrainingData1 <- loadMetabricMicmaTrainingData()
 micmaData <- loadFederationMicmaData()
 
 
@@ -37,18 +43,10 @@ metabricPredictions1 <- coxTest$customPredict(metabricTestData1$exprData, metabr
 metabricPredictions2 <- coxTest$customPredict(metabricTestData2$exprData, metabricTestData2$copyData,
                                               metabricTestData2$clinicalFeaturesData)
 
-# covariate in common
-metabric <- metabricTrainingData$clinicalFeaturesData
-micma <- micmaData$clinicalFeaturesData
-inCommon <- intersect(names(metabric),names(micma))
-micmaData$clinicalFeaturesData <- micma[,inCommon]
-metabricTrainingData$clinicalFeaturesData <- metabric[,inCommon]
-
-
 # Metabric with MICMA
 coxTest2<-CoxphModel$new()
-coxTest2$customTrain(metabricTrainingData$exprData, metabricTrainingData$copyData,
-                     metabricTrainingData$clinicalFeaturesData, metabricTrainingData$clinicalSurvData)
+coxTest2$customTrain(metabricTrainingData1$exprData, metabricTrainingData1$copyData,
+                     metabricTrainingData1$clinicalFeaturesData, metabricTrainingData1$clinicalSurvData)
 micmaPredictions <- coxTest2$customPredict(micmaData$exprData, micmaData$copyData,
                                           micmaData$clinicalFeaturesData)
 

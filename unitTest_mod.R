@@ -13,12 +13,12 @@ library(MASS)
 
 ###### these are the utility functions to write #############
 
-source("~/Federation/loadFederationMetabricTrainingData.R")
+source("~/Federation/loadMetabricTrainingData.R")
 source("~/Federation/loadFederationMetabricTestData1.R")
 source("~/Federation/loadFederationMetabricTestData2.R")
 source("~/Federation/loadFederationMicmaData.R")
 
-metabricTrainingData <- loadFederationMetabricTrainingData()
+metabricTrainingData <- loadMetabricTrainingData()
 metabricTestData1 <- loadFederationMetabricTestData1()
 metabricTestData2 <- loadFederationMetabricTestData2()
 micmaData <- loadFederationMicmaData()

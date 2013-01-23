@@ -21,7 +21,7 @@ loadMetabricTrainingData <- function(){
   copyLayer <- loadEntity(idCopyLayer)
   metabricTrainingData$copyData <- copyLayer$objects[[1]]
   
-  idClinicalFeaturesLayer <- "syn1589898"
+  idClinicalFeaturesLayer <- "syn1643478"
   clinicalFeaturesLayer <- loadEntity(idClinicalFeaturesLayer)
   metabricTrainingData$clinicalFeaturesData <- clinicalFeaturesLayer$objects[[1]]@data
   

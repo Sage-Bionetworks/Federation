@@ -10,7 +10,7 @@
 #' @author Adam Margolin and In Sock
 #' @export
 
-loadMetabricTrainingData <- function(){
+loadMetabricMicmaTrainingData <- function(){
   metabricTrainingData <- list()
   
   idExpressionLayer <- "syn1588845"
@@ -21,7 +21,7 @@ loadMetabricTrainingData <- function(){
   copyLayer <- loadEntity(idCopyLayer)
   metabricTrainingData$copyData <- copyLayer$objects[[1]]
   
-  idClinicalFeaturesLayer <- "syn1589898"
+  idClinicalFeaturesLayer <- "syn1643466"
   clinicalFeaturesLayer <- loadEntity(idClinicalFeaturesLayer)
   metabricTrainingData$clinicalFeaturesData <- clinicalFeaturesLayer$objects[[1]]@data
   
@@ -29,7 +29,7 @@ loadMetabricTrainingData <- function(){
   clinicalSurvLayer <- loadEntity(idClinicalSurvLayer)
   metabricTrainingData$clinicalSurvData <- clinicalSurvLayer$objects$clinicalSurv_train
   
-
+  
   return(metabricTrainingData)
 }
 

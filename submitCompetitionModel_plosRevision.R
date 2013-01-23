@@ -20,7 +20,7 @@ require(sessionTools)
 #' @export
 
 submitCompetitionModel_plosRevision <- function(modelName = NULL, trainedModel=NULL,
-                                   rFiles=NULL, cvPerformance=NULL, parentDatasetId = "syn1642232"){
+                                   rFiles=NULL, algorithm=NULL, geneList=NULL, cvPerformance=NULL, parentDatasetId = "syn1642232"){
   
   submittedModelLayer <- Data(list(name = modelName, parentId = parentDatasetId))
   

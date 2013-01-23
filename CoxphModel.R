@@ -13,15 +13,16 @@ CoxphModel <- setRefClass(Class = "CoxphModel",
                                  },
                                  
                                  customTrain = function(exprData, copyData, clinicalFeaturesData, clinicalSurvData,  ...){
+                                   A<-clinicalFeaturesData                                   
                                    
-                                   .self$model <- coxph(clinicalSurvData ~., data=clinicalFeaturesData)
+                                   .self$model <- coxph(clinicalSurvData ~., data=A)
                                    
                                  },
                                  
                                  customPredict = function(exprData, copyData, clinicalFeaturesData){
+                                   A<-clinicalFeaturesData
                                    
-                                   
-                                   predictedResponse <- predict(.self$model, clinicalFeaturesData)
+                                   predictedResponse <- predict(.self$model, data=A)
                                    
                                    return(predictedResponse)
                                  }

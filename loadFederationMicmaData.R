@@ -26,7 +26,6 @@ loadFederationMicmaData <- function(loadSurvData=FALSE){
   idClinicalFeaturesLayer <- "syn1589906"
   clinicalFeaturesLayer <- loadEntity(idClinicalFeaturesLayer)
   metabricTestData$clinicalFeaturesData <- clinicalFeaturesLayer$objects[[1]]@data
-  
-  
+    
   return(metabricTestData)
 }

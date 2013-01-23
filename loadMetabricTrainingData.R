@@ -25,7 +25,7 @@ loadMetabricTrainingData <- function(){
   clinicalFeaturesLayer <- loadEntity(idClinicalFeaturesLayer)
   metabricTrainingData$clinicalFeaturesData <- clinicalFeaturesLayer$objects[[1]]@data
   
-  idClinicalSurvLayer <- "syn1589146"
+  idClinicalSurvLayer <- "syn1643540"
   clinicalSurvLayer <- loadEntity(idClinicalSurvLayer)
   metabricTrainingData$clinicalSurvData <- clinicalSurvLayer$objects$clinicalSurv_train
   

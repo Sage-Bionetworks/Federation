@@ -23,7 +23,7 @@ loadFederationMetabricTestData1 <- function(loadSurvData=FALSE){
   copyLayer <- loadEntity(idCopyLayer)
   metabricTestData$copyData <- copyLayer$objects[[1]]
   
-  idClinicalFeaturesLayer <- "syn1589902"
+  idClinicalFeaturesLayer <- "syn1643486"
   clinicalFeaturesLayer <- loadEntity(idClinicalFeaturesLayer)
   metabricTestData$clinicalFeaturesData <- clinicalFeaturesLayer$objects[[1]]@data
     

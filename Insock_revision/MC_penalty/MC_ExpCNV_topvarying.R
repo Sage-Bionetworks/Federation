@@ -1,0 +1,59 @@
+MC_ExpCNV_topvarying <- setRefClass(Class = "MC_ExpCNV_topvarying",                              
+                                 contains="PredictiveModel",
+                                 fields=c("model","childclass"),
+                                 methods = list(
+                                   initialize = function(...){
+                                     return(.self)
+                                   },
+                                   
+                                   rawModel = function(){
+                                     return(.self$model)
+                                   },
+                                   
+                                   customTrain = function(exprData,copyData,clinicalFeaturesData,clinicalSurvData, ...){
+                                     res<-mapper(clinicalFeaturesData)
+                                     
+                                     featureData <-createAggregateFeatureDataSet(list(expr=exprData,copy = copyData))                                       
+                                     
+                                     controlled<-loadEntity("syn1670947")
+                                     name<-controlled$objects$topvarying_names
+                                     name<-union(paste(name,"_expr",sep=""),paste(name,"_copy",sep=""))                            
+                                     pos<-match(name,rownames(featureData))
+                                     POS<-pos[which(is.na(pos)==0)]
+                                     
+                                     FEA1 <-t(featureData[POS,])                                        
+                                     FEA <- cbind(FEA1,res[rownames(FEA1),])                                     
+                                     FEA<-t(filterNasFromMatrix(dataMatrix=t(FEA), filterBy = "columns"))
+                                     
+                                     # Model training
+                                     .self$childclass <- myEnetCoxModel$new()
+                                     .self$model <- .self$childclass$customTrain(FEA,
+                                                                                 clinicalSurvData[rownames(FEA),],
+                                                                                 alpha = alphas, 
+                                                                                 lambda = lambdas,
+                                                                                 nfolds =5)
+                                   },
+                                   customPredict = function(exprData, copyData, clinicalFeaturesData, ...){
+                                     res<-mapper(clinicalFeaturesData)
+                                     
+                                     featureData <-createAggregateFeatureDataSet(list(expr=exprData,copy = copyData))                                       
+                                     
+                                     controlled<-loadEntity("syn1670947")
+                                     name<-controlled$objects$topvarying_names
+                                     name<-union(paste(name,"_expr",sep=""),paste(name,"_copy",sep=""))                            
+                                     pos<-match(name,rownames(featureData))
+                                     POS<-pos[which(is.na(pos)==0)]
+                                     
+                                     FEA1 <-t(featureData[POS,])                                        
+                                     FEA <- cbind(FEA1,res[rownames(FEA1),])                                     
+                                     FEA<-t(filterNasFromMatrix(dataMatrix=t(FEA), filterBy = "columns"))
+                                     beta <- rownames(.self$childclass$getCoefficients())
+                                     FEA<-FEA[,beta]
+                                     
+                                     
+                                     predictedResponse <- predict(.self$childclass$model,FEA)
+                                     names(predictedResponse)<-rownames(FEA)
+                                     return(predictedResponse)
+                                   }
+                                 )
+)

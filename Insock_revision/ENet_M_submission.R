@@ -112,10 +112,10 @@ print(testPerformance6$getExactConcordanceIndex())
 ### step 6: submitModel
 ###################################################
 source("~/Federation/Insock_revision/submitCompetitionModel_micmaTrained_InSock.R")
-myGeneList1 = "CancerCensus" 
-myGeneList2 = "MarginalAssociation" 
-myGeneList3 = "MetabricClustering" 
-myGeneList4 = "TopVaringHiggins" 
+myGeneList1 = "Cancer Census" 
+myGeneList2 = "Marginal Association" 
+myGeneList3 = "Metabric Clustering" 
+myGeneList4 = "TopVaring Higgins" 
 myGeneList5 = "TopVaring" 
 myGeneList6 = "MASP" 
 

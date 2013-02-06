@@ -112,12 +112,12 @@ print(testPerformance6$getExactConcordanceIndex())
 ### step 6: submitModel
 ###################################################
 source("~/Federation/Insock_revision/submitCompetitionModel_micmaTrained_InSock.R")
-myGeneList1 = "CancerCensus + clinical" 
-myGeneList2 = "MarginalAssociation + clinical" 
-myGeneList3 = "MetabricClustering + clinical" 
-myGeneList4 = "TopVaringHiggins + clinical" 
-myGeneList5 = "TopVaring + clinical" 
-myGeneList6 = "MASP + clinical" 
+myGeneList1 = "Cancer Census + Clinical" 
+myGeneList2 = "Marginal Association + Clinical" 
+myGeneList3 = "Metabric Clustering + Clinical" 
+myGeneList4 = "TopVaring Higgins + Clinical" 
+myGeneList5 = "TopVaring + Clinical" 
+myGeneList6 = "MASP + Clinical" 
 
 submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso without penalty with expr +copy + clinical CancerCensus", trainedModel=CancerCensus,rFiles=list(modelClassFile1,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList1)
 submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso without penalty with expr +copy + clinical Mariginal Association", trainedModel=MarginalAssociation,rFiles=list(modelClassFile2,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList2)

@@ -19,8 +19,8 @@ testingData <- loadFederationMicmaData()
 ### step 3: call predefined Models' classFile
 ###################################################
 
-modelClassFile0 = ("~/DrugResponse/survival_analysis/Insock_revision/mapper.R")
-modelClassFile = ("~/DrugResponse/R5/myEnetCoxModel.R")
+modelClassFile0 = ("~/Federation/Insock_revision/mapper.R")
+modelClassFile = ("~/Federation/Insock_revision/myEnetCoxModel.R")
 source(modelClassFile)
 
 modelClassFile1 = ("~/DrugResponse/survival_analysis/Insock_revision/M/M_ExpCNV_cancerCensus.R")
@@ -111,6 +111,7 @@ print(testPerformance6$getExactConcordanceIndex())
 ###################################################
 ### step 6: submitModel
 ###################################################
+source("~/Federation/Insock_revision/submitCompetitionModel_micmaTrained_InSock.R")
 myGeneList1 = "CancerCensus" 
 myGeneList2 = "MarginalAssociation" 
 myGeneList3 = "MetabricClustering" 

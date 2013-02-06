@@ -115,8 +115,8 @@ source("~/Federation/Insock_revision/submitCompetitionModel_micmaTrained_InSock.
 myGeneList1 = "Cancer Census" 
 myGeneList2 = "Marginal Association" 
 myGeneList3 = "Metabric Clustering" 
-myGeneList4 = "TopVaring Higgins" 
-myGeneList5 = "TopVaring" 
+myGeneList4 = "Higgins" 
+myGeneList5 = "Top-Varing" 
 myGeneList6 = "MASP" 
 
 submitCompetitionModel_micmaTrained_InSock(modelName = "ENet without penalty with expr +copy CancerCensus", trainedModel=CancerCensus,rFiles=list(modelClassFile1,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList1)

@@ -5,6 +5,7 @@
 ###################################################
 library(predictiveModeling)
 library(BCC)
+library(federationPLoSRevision)
 synapseLogin("in.sock.jang@sagebase.org","tjsDUD@")
 
 
@@ -18,10 +19,10 @@ testingData <- loadFederationMicmaData()
 ###################################################
 ### step 3: call predefined Models' classFile
 ###################################################
-
 modelClassFile0 = ("~/Federation/Insock_revision/mapper.R")
 modelClassFile = ("~/Federation/Insock_revision/myEnetCoxModel.R")
 source(modelClassFile)
+source(modelClassFile0)
 
 modelClassFile1 = ("~/DrugResponse/survival_analysis/Insock_revision/MC_penalty/MC_ExpCNV_cancerCensus.R")
 modelClassFile2 = ("~/DrugResponse/survival_analysis/Insock_revision/MC_penalty/MC_ExpCNV_marginalAssociation.R")
@@ -115,9 +116,10 @@ source("~/Federation/Insock_revision/submitCompetitionModel_micmaTrained_InSock.
 myGeneList1 = "Cancer Census + Clinical" 
 myGeneList2 = "Marginal Association + Clinical" 
 myGeneList3 = "Metabric Clustering + Clinical" 
-myGeneList4 = "TopVaring Higgins + Clinical" 
-myGeneList5 = "TopVaring + Clinical" 
+myGeneList4 = "Higgins + Clinical" 
+myGeneList5 = "Top-Varing + Clinical" 
 myGeneList6 = "MASP + Clinical" 
+
 
 submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso without penalty with expr +copy + clinical CancerCensus", trainedModel=CancerCensus,rFiles=list(modelClassFile1,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList1)
 submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso without penalty with expr +copy + clinical Mariginal Association", trainedModel=MarginalAssociation,rFiles=list(modelClassFile2,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList2)

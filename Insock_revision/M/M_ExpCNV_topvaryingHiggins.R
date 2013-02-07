@@ -22,7 +22,7 @@ M_ExpCNV_topvaryingHiggins <- setRefClass(Class = "M_ExpCNV_topvaryingHiggins",
                             
                             FEA <-t(featureData[POS,])                                                
                             FEA<-t(filterNasFromMatrix(dataMatrix=t(FEA), filterBy = "columns"))
-                            
+                            FEA<-scale(FEA)
                             # Model training
                             .self$childclass <- myEnetCoxModel$new()
                             .self$model <- .self$childclass$customTrain(FEA,
@@ -44,6 +44,7 @@ M_ExpCNV_topvaryingHiggins <- setRefClass(Class = "M_ExpCNV_topvaryingHiggins",
                             FEA <-t(featureData[POS,])               
                             beta <- rownames(.self$childclass$getCoefficients())
                             FEA<-FEA[,beta]
+                            FEA<-scale(FEA)
                             
                             
                             predictedResponse <- predict(.self$childclass$model,FEA)

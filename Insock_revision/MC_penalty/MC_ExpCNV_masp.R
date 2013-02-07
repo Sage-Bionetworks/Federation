@@ -17,14 +17,14 @@ MC_ExpCNV_masp <- setRefClass(Class = "MC_ExpCNV_masp",
                                      
                                      controlled<-loadEntity("syn1670951")
                                      name<-controlled$objects$masp_names
-                                     name<-union(paste(name,"_expr",sep=""),paste(name,"_copy",sep=""))                            
+                                     name<-paste(name,"_expr",sep="")                            
                                      pos<-match(name,rownames(featureData))
                                      POS<-pos[which(is.na(pos)==0)]
                                      
                                      FEA1 <-t(featureData[POS,])                                        
                                      FEA <- cbind(FEA1,res[rownames(FEA1),])                                     
                                      FEA<-t(filterNasFromMatrix(dataMatrix=t(FEA), filterBy = "columns"))
-                                     
+                                     FEA<-scale(FEA)
                                      # Model training
                                      .self$childclass <- myEnetCoxModel$new()
                                      .self$model <- .self$childclass$customTrain(FEA,
@@ -40,7 +40,7 @@ MC_ExpCNV_masp <- setRefClass(Class = "MC_ExpCNV_masp",
                                      
                                      controlled<-loadEntity("syn1670951")
                                      name<-controlled$objects$masp_names
-                                     name<-union(paste(name,"_expr",sep=""),paste(name,"_copy",sep=""))                            
+                                     name<-paste(name,"_expr",sep="")                            
                                      pos<-match(name,rownames(featureData))
                                      POS<-pos[which(is.na(pos)==0)]
                                      
@@ -48,7 +48,7 @@ MC_ExpCNV_masp <- setRefClass(Class = "MC_ExpCNV_masp",
                                      FEA <- cbind(FEA1,res[rownames(FEA1),])                                     
                                      beta <- rownames(.self$childclass$getCoefficients())
                                      FEA<-FEA[,beta]
-                                     
+                                     FEA<-scale(FEA)
                                      
                                      predictedResponse <- predict(.self$childclass$model,FEA)
                                      names(predictedResponse)<-rownames(FEA)

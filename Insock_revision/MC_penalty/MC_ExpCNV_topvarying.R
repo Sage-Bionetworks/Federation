@@ -24,7 +24,7 @@ MC_ExpCNV_topvarying <- setRefClass(Class = "MC_ExpCNV_topvarying",
                                      FEA1 <-t(featureData[POS,])                                        
                                      FEA <- cbind(FEA1,res[rownames(FEA1),])                                     
                                      FEA<-t(filterNasFromMatrix(dataMatrix=t(FEA), filterBy = "columns"))
-                                     
+                                     FEA<-scale(FEA)  
                                      # Model training
                                      .self$childclass <- myEnetCoxModel$new()
                                      .self$model <- .self$childclass$customTrain(FEA,
@@ -49,7 +49,7 @@ MC_ExpCNV_topvarying <- setRefClass(Class = "MC_ExpCNV_topvarying",
                                      FEA<-t(filterNasFromMatrix(dataMatrix=t(FEA), filterBy = "columns"))
                                      beta <- rownames(.self$childclass$getCoefficients())
                                      FEA<-FEA[,beta]
-                                     
+                                     FEA<-scale(FEA)
                                      
                                      predictedResponse <- predict(.self$childclass$model,FEA)
                                      names(predictedResponse)<-rownames(FEA)

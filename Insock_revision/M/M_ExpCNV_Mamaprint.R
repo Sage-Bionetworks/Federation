@@ -22,6 +22,7 @@ M_ExpCNV_Mamaprint <- setRefClass(Class = "M_ExpCNV_Mamaprint",
                             
                             FEA <-t(featureData[POS,])                                                
                             FEA<-t(filterNasFromMatrix(dataMatrix=t(FEA), filterBy = "columns"))
+                            FEA<-scale(FEA)
                             
                             # Model training
                             .self$childclass <- myEnetCoxModel$new()
@@ -44,6 +45,7 @@ M_ExpCNV_Mamaprint <- setRefClass(Class = "M_ExpCNV_Mamaprint",
                             FEA <-t(featureData[POS,])               
                             beta <- rownames(.self$childclass$getCoefficients())
                             FEA<-FEA[,beta]
+                            FEA<-scale(FEA)
                             
                             
                             predictedResponse <- predict(.self$childclass$model,FEA)

@@ -1,4 +1,5 @@
 ### Elastic Net Molecular Feature only 
+rm(list = ls())
 
 ###################################################
 ### step 1: loadLibraries
@@ -22,6 +23,7 @@ testingData <- loadFederationMicmaData()
 modelClassFile0 = ("~/Federation/Insock_revision/mapper.R")
 modelClassFile = ("~/Federation/Insock_revision/myEnetCoxModel.R")
 source(modelClassFile)
+source(modelClassFile0)
 
 modelClassFile1 = ("~/Federation/Insock_revision/M/M_ExpCNV_cancerCensus.R")
 modelClassFile2 = ("~/Federation/Insock_revision/M/M_ExpCNV_marginalAssociation.R")
@@ -31,6 +33,7 @@ modelClassFile5 = ("~/Federation/Insock_revision/M/M_ExpCNV_topvarying.R")
 modelClassFile6 = ("~/Federation/Insock_revision/M/M_ExpCNV_masp.R")
 modelClassFile7 = ("~/Federation/Insock_revision/M/M_ExpCNV_OncomapDx.R")
 modelClassFile8 = ("~/Federation/Insock_revision/M/M_ExpCNV_Mamaprint.R")
+modelClassFile9 = ("~/Federation/Insock_revision/M/M_ExpCNV_maspGII.R")
 
 source(modelClassFile1)
 source(modelClassFile2)
@@ -40,6 +43,7 @@ source(modelClassFile5)
 source(modelClassFile6)
 source(modelClassFile7)
 source(modelClassFile8)
+source(modelClassFile9)
 
 ###################################################
 ### step 4: trainModel
@@ -88,6 +92,11 @@ Mammaprint$customTrain(trainingData$exprData,trainingData$copyData,trainingData$
 trainPredictions8 <- Mammaprint$customPredict(trainingData$exprData, trainingData$copyData, trainingData$clinicalFeaturesData)
 testPredictions8 <- Mammaprint$customPredict(testingData$exprData, testingData$copyData, testingData$clinicalFeaturesData)
 
+MaspGII <- M_ExpCNV_maspGII$new()
+MaspGII$customTrain(trainingData$exprData,trainingData$copyData,trainingData$clinicalFeaturesData,trainingData$clinicalSurvData, alpha = alphas,lambda = lambdas)
+trainPredictions9 <- MaspGII$customPredict(trainingData$exprData, trainingData$copyData, trainingData$clinicalFeaturesData)
+testPredictions9 <- MaspGII$customPredict(testingData$exprData, testingData$copyData, testingData$clinicalFeaturesData)
+
 
 ###################################################
 ### step 5: computeTrainCIndex
@@ -100,6 +109,7 @@ trainPerformance5 <- SurvivalModelPerformance$new(as.numeric(trainPredictions5),
 trainPerformance6 <- SurvivalModelPerformance$new(as.numeric(trainPredictions6), trainingData$clinicalSurvData[rownames(trainPredictions6),])
 trainPerformance7 <- SurvivalModelPerformance$new(as.numeric(trainPredictions7), trainingData$clinicalSurvData[rownames(trainPredictions7),])
 trainPerformance8 <- SurvivalModelPerformance$new(as.numeric(trainPredictions8), trainingData$clinicalSurvData[rownames(trainPredictions8),])
+trainPerformance9 <- SurvivalModelPerformance$new(as.numeric(trainPredictions9), trainingData$clinicalSurvData[rownames(trainPredictions9),])
 
 print(trainPerformance1$getExactConcordanceIndex())
 print(trainPerformance2$getExactConcordanceIndex())
@@ -109,6 +119,7 @@ print(trainPerformance5$getExactConcordanceIndex())
 print(trainPerformance6$getExactConcordanceIndex())
 print(trainPerformance7$getExactConcordanceIndex())
 print(trainPerformance8$getExactConcordanceIndex())
+print(trainPerformance9$getExactConcordanceIndex())
 
 testPerformance1 <- SurvivalModelPerformance$new(as.numeric(testPredictions1), testingData$clinicalSurvData[rownames(testPredictions1),])
 testPerformance2 <- SurvivalModelPerformance$new(as.numeric(testPredictions2), testingData$clinicalSurvData[rownames(testPredictions2),])
@@ -118,6 +129,7 @@ testPerformance5 <- SurvivalModelPerformance$new(as.numeric(testPredictions5), t
 testPerformance6 <- SurvivalModelPerformance$new(as.numeric(testPredictions6), testingData$clinicalSurvData[rownames(testPredictions6),])
 testPerformance7 <- SurvivalModelPerformance$new(as.numeric(testPredictions7), testingData$clinicalSurvData[rownames(testPredictions7),])
 testPerformance8 <- SurvivalModelPerformance$new(as.numeric(testPredictions8), testingData$clinicalSurvData[rownames(testPredictions8),])
+testPerformance9 <- SurvivalModelPerformance$new(as.numeric(testPredictions9), testingData$clinicalSurvData[rownames(testPredictions9),])
 
 print(testPerformance1$getExactConcordanceIndex())
 print(testPerformance2$getExactConcordanceIndex())
@@ -127,6 +139,7 @@ print(testPerformance5$getExactConcordanceIndex())
 print(testPerformance6$getExactConcordanceIndex())
 print(testPerformance7$getExactConcordanceIndex())
 print(testPerformance8$getExactConcordanceIndex())
+print(testPerformance9$getExactConcordanceIndex())
 
 
 
@@ -140,8 +153,10 @@ myGeneList3 = "Metabric Clustering"
 myGeneList4 = "Higgins" 
 myGeneList5 = "Top-varying" 
 myGeneList6 = "MASP" 
-myGeneList7 = "OncomapDx" 
+myGeneList7 = "OncotypeDx" 
 myGeneList8 = "Mammaprint" 
+myGeneList9 = "MASP + GII" 
+
 
 submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy CancerCensus", trainedModel=CancerCensus,rFiles=list(modelClassFile1,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList1)
 submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Mariginal Association", trainedModel=MarginalAssociation,rFiles=list(modelClassFile2,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList2)
@@ -149,6 +164,7 @@ submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without pena
 submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Higgins", trainedModel=TopvaringHiggins,rFiles=list(modelClassFile4,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList4)
 submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Top-varying", trainedModel=Topvaring,rFiles=list(modelClassFile5,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList5)
 submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Masp", trainedModel=Masp,rFiles=list(modelClassFile6,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList6)
-submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy OncomapDx", trainedModel=OncomapDx,rFiles=list(modelClassFile7,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList7)
+submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy OncotypeDx", trainedModel=OncomapDx,rFiles=list(modelClassFile7,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList7)
 submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Mammaprint", trainedModel=Mammaprint,rFiles=list(modelClassFile8,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList8)
+submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Masp + GII", trainedModel=MaspGII,rFiles=list(modelClassFile9,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList9)
 

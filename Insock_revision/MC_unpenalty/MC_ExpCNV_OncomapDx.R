@@ -26,6 +26,7 @@ MC_ExpCNV_OncomapDx <- setRefClass(Class = "MC_ExpCNV_OncomapDx",
                                      FEA<-t(filterNasFromMatrix(dataMatrix=t(FEA), filterBy = "columns"))
                                      penalty <- rep(0,ncol(FEA))
                                      penalty[grep("_eg_",colnames(FEA))]<-1
+                                     FEA<-scale(FEA)
                                      
                                      # Model training
                                      .self$childclass <- myEnetCoxModel$new()
@@ -52,6 +53,7 @@ MC_ExpCNV_OncomapDx <- setRefClass(Class = "MC_ExpCNV_OncomapDx",
                                      FEA <- cbind(FEA1,res[rownames(FEA1),])                                     
                                      beta <- rownames(.self$childclass$getCoefficients())
                                      FEA<-FEA[,beta]
+                                     FEA<-scale(FEA)
                                      
                                      
                                      predictedResponse <- predict(.self$childclass$model,FEA)

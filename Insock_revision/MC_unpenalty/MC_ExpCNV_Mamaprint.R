@@ -1,4 +1,4 @@
-MC_ExpCNV_Mammaprint <- setRefClass(Class = "MC_ExpCNV_Mammaprint",                              
+MC_ExpCNV_Mamaprint <- setRefClass(Class = "MC_ExpCNV_Mamaprint",                              
                                  contains="PredictiveModel",
                                  fields=c("model","childclass"),
                                  methods = list(

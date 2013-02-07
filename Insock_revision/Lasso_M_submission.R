@@ -22,6 +22,7 @@ testingData <- loadFederationMicmaData()
 modelClassFile0 = ("~/Federation/Insock_revision/mapper.R")
 modelClassFile = ("~/Federation/Insock_revision/myEnetCoxModel.R")
 source(modelClassFile)
+source(modelClassFile0)
 
 modelClassFile1 = ("~/Federation/Insock_revision/M/M_ExpCNV_cancerCensus.R")
 modelClassFile2 = ("~/Federation/Insock_revision/M/M_ExpCNV_marginalAssociation.R")

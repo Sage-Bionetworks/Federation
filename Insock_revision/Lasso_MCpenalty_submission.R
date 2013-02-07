@@ -117,7 +117,7 @@ myGeneList1 = "Cancer Census + Clinical"
 myGeneList2 = "Marginal Association + Clinical" 
 myGeneList3 = "Metabric Clustering + Clinical" 
 myGeneList4 = "Higgins + Clinical" 
-myGeneList5 = "Top-Varing + Clinical" 
+myGeneList5 = "Top-varying + Clinical" 
 myGeneList6 = "MASP + Clinical" 
 
 

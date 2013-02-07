@@ -117,7 +117,7 @@ myGeneList1 = "Cancer Census + Clinical"
 myGeneList2 = "Marginal Association + Clinical" 
 myGeneList3 = "Metabric Clustering + Clinical" 
 myGeneList4 = "Higgins + Clinical" 
-myGeneList5 = "Top-Varing + Clinical" 
+myGeneList5 = "Top-varying + Clinical" 
 myGeneList6 = "MASP + Clinical" 
 
 submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso with penalty with expr +copy + clinical CancerCensus", trainedModel=CancerCensus,rFiles=list(modelClassFile1,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList1)

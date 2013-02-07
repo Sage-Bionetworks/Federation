@@ -1,5 +1,3 @@
-source("~/DrugResponse/R5/myEnetCoxModel.R")
-
 M_ExpCNV_cancerCensus <- setRefClass(Class = "M_ExpCNV_cancerCensus",                              
                         contains="PredictiveModel",
                         fields=c("model","childclass"),

@@ -1,5 +1,3 @@
-source("~/DrugResponse/R5/myEnetCoxModel.R")
-
 M_ExpCNV_metabricClustering <- setRefClass(Class = "M_ExpCNV_metabricClustering",                              
                         contains="PredictiveModel",
                         fields=c("model","childclass"),

@@ -1,5 +1,3 @@
-source("~/DrugResponse/R5/myEnetCoxModel.R")
-
 M_ExpCNV_topvaryingHiggins <- setRefClass(Class = "M_ExpCNV_topvaryingHiggins",                              
                         contains="PredictiveModel",
                         fields=c("model","childclass"),

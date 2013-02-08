@@ -15,8 +15,8 @@ submitCompetitionModel_micmaTrained_InSock <- function(modelName = NULL, trained
   submittedModelLayer <- addObject(submittedModelLayer, cvPerformance, "cvPerformance")
   submittedModelLayer <- addObject(submittedModelLayer, sessionSummary(), "sessionSummary")
   
-  metabricTrainingData <- loadMetabricMicmaTrainingData()
-  micmaData <- loadFederationMicmaData()
+  metabricTrainingData <- loadFederationMetabricTrainingData()
+  metabricTestingData <- loadFederationMetabricTestData1()
   
   metabricPredictions_train <- trainedModel$customPredict(metabricTrainingData$exprData, metabricTrainingData$copyData,
                                                           metabricTrainingData$clinicalFeaturesData)
@@ -25,16 +25,16 @@ submitCompetitionModel_micmaTrained_InSock <- function(modelName = NULL, trained
   print(paste("cIndex_train", cIndex_train))
   
   
-  micmaPredictions <- trainedModel$customPredict(micmaData$exprData, micmaData$copyData,
-                                                 micmaData$clinicalFeaturesData)
-  trainPerformance <- SurvivalModelPerformance$new(as.numeric(micmaPredictions), micmaData$clinicalSurvData[rownames(micmaPredictions),])
-  cIndex_micma <- trainPerformance$getExactConcordanceIndex()
-  print(paste("cIndex_micma", cIndex_micma))
+  metabricPredictions1 <- trainedModel$customPredict(metabricTestingData$exprData, metabricTestingData$copyData,
+                                                 metabricTestingData$clinicalFeaturesData)
+  trainPerformance <- SurvivalModelPerformance$new(as.numeric(metabricPredictions1), metabricTestingData$clinicalSurvData[rownames(metabricPredictions1),])
+  cIndex_metabric1 <- trainPerformance$getExactConcordanceIndex()
+  print(paste("cIndex_metabric1", cIndex_metabric1))
   
-  submittedModelLayer <- addObject(submittedModelLayer, micmaPredictions, "micmaPredictions")
+  submittedModelLayer <- addObject(submittedModelLayer, metabricPredictions1, "metabricPredictions1")
   
   submittedModelLayer$annotations$cIndex_train <- cIndex_train
-  submittedModelLayer$annotations$cIndex_micma <- cIndex_micma
+  submittedModelLayer$annotations$cIndex_metabric1 <- cIndex_metabric1
   
   submittedModelLayer$annotations$geneList <- geneList
   submittedModelLayer$annotations$algorithm <- algorithm

@@ -146,7 +146,7 @@ print(testPerformance9$getExactConcordanceIndex())
 ###################################################
 ### step 6: submitModel
 ###################################################
-source("~/Federation/Insock_metabric_revision/submitCompetitionModel_micmaTrained_InSock.R")
+source("~/Federation/Insock_metabric_revision/submitCompetitionModel_MetabricTrained_InSock.R")
 myGeneList1 = "Cancer Census" 
 myGeneList2 = "Marginal Association" 
 myGeneList3 = "Metabric Clustering" 
@@ -158,13 +158,13 @@ myGeneList8 = "Mammaprint"
 myGeneList9 = "MASP + GII" 
 
 
-submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy CancerCensus", trainedModel=CancerCensus,rFiles=list(modelClassFile1,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList1)
-submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Mariginal Association", trainedModel=MarginalAssociation,rFiles=list(modelClassFile2,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList2)
-submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy MetabricClustering", trainedModel=MetabricClustering,rFiles=list(modelClassFile3,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList3)
-submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Higgins", trainedModel=TopvaringHiggins,rFiles=list(modelClassFile4,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList4)
-submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Top-varying", trainedModel=Topvaring,rFiles=list(modelClassFile5,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList5)
-submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Masp", trainedModel=Masp,rFiles=list(modelClassFile6,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList6)
-submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy OncotypeDx", trainedModel=OncomapDx,rFiles=list(modelClassFile7,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList7)
-submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Mammaprint", trainedModel=Mammaprint,rFiles=list(modelClassFile8,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList8)
-submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Masp + GII", trainedModel=MaspGII,rFiles=list(modelClassFile9,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList9)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy CancerCensus", trainedModel=CancerCensus,rFiles=list(modelClassFile1,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList1)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Mariginal Association", trainedModel=MarginalAssociation,rFiles=list(modelClassFile2,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList2)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy MetabricClustering", trainedModel=MetabricClustering,rFiles=list(modelClassFile3,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList3)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Higgins", trainedModel=TopvaringHiggins,rFiles=list(modelClassFile4,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList4)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Top-varying", trainedModel=Topvaring,rFiles=list(modelClassFile5,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList5)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Masp", trainedModel=Masp,rFiles=list(modelClassFile6,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList6)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy OncotypeDx", trainedModel=OncomapDx,rFiles=list(modelClassFile7,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList7)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Mammaprint", trainedModel=Mammaprint,rFiles=list(modelClassFile8,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList8)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Masp + GII", trainedModel=MaspGII,rFiles=list(modelClassFile9,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList9)
 

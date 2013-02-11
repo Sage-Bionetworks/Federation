@@ -52,8 +52,8 @@ testPredictions2 <- ClinicalGII$customPredict(testingData$exprData, testingData$
 ###################################################
 ### step 5: computeTrainCIndex
 ###################################################
-trainPerformance1 <- SurvivalModelPerformance$new(as.numeric(trainPredictions1), trainingData$clinicalSurvData[rownames(trainPredictions1),])
-trainPerformance2 <- SurvivalModelPerformance$new(as.numeric(trainPredictions2), trainingData$clinicalSurvData[rownames(trainPredictions2),])
+trainPerformance1 <- SurvivalModelPerformance$new(as.numeric(trainPredictions1), trainingData$clinicalSurvData)
+trainPerformance2 <- SurvivalModelPerformance$new(as.numeric(trainPredictions2), trainingData$clinicalSurvData)
 
 print(trainPerformance1$getExactConcordanceIndex())
 print(trainPerformance2$getExactConcordanceIndex())
@@ -68,9 +68,9 @@ print(testPerformance2$getExactConcordanceIndex())
 ###################################################
 ### step 6: submitModel
 ###################################################
-source("~/Federation/Insock_metabric_revision/submitCompetitionModel_micmaTrained_InSock.R")
+source("~/Federation/Insock_metabric_revision/submitCompetitionModel_MetabricTrained_InSock.R")
 myGeneList1 = "Clinical" 
 myGeneList2 = "Clinical + GII" 
 
-submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso without penalty with clinical only", trainedModel=ClinicalOnly,rFiles=list(modelClassFile1,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList1)
-submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso without penalty with clinical + GII", trainedModel=ClinicalGII,rFiles=list(modelClassFile2,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList2)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Lasso without penalty with clinical only", trainedModel=ClinicalOnly,rFiles=list(modelClassFile1,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList1)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Lasso without penalty with clinical + GII", trainedModel=ClinicalGII,rFiles=list(modelClassFile2,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList2)

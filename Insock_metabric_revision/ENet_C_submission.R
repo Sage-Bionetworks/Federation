@@ -69,9 +69,9 @@ print(testPerformance2$getExactConcordanceIndex())
 ###################################################
 ### step 6: submitModel
 ###################################################
-source("~/Federation/Insock_metabric_revision/submitCompetitionModel_micmaTrained_InSock.R")
+source("~/Federation/Insock_metabric_revision/submitCompetitionModel_MetabricTrained_InSock.R")
 myGeneList1 = "Clinical" 
 myGeneList2 = "Clinical + GII" 
 
-submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with clinical only", trainedModel=ClinicalOnly,rFiles=list(modelClassFile1,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList1)
-submitCompetitionModel_micmaTrained_InSock(modelName = "Elastic Net without penalty with clinical + GII", trainedModel=ClinicalGII,rFiles=list(modelClassFile2,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList2)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with clinical only", trainedModel=ClinicalOnly,rFiles=list(modelClassFile1,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList1)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with clinical + GII", trainedModel=ClinicalGII,rFiles=list(modelClassFile2,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList2)

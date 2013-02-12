@@ -153,7 +153,7 @@ myGeneList3 = "Metabric Clustering + Clinical"
 myGeneList4 = "Higgins + Clinical" 
 myGeneList5 = "Top-varying + Clinical" 
 myGeneList6 = "MASP + Clinical" 
-myGeneList7 = "OncotypeDx + Clinical" 
+myGeneList7 = "OncotypeDX + Clinical" 
 myGeneList8 = "Mammaprint + Clinical" 
 myGeneList9 = "MASP + Clinical + GII" 
 
@@ -165,7 +165,7 @@ submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso with penalty with 
 submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso with penalty with expr + copy + clinical Higgins", trainedModel=TopvaringHiggins,rFiles=list(modelClassFile4,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList4)
 submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso with penalty with expr + copy + clinical Top-varying", trainedModel=Topvaring,rFiles=list(modelClassFile5,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList5)
 submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso with penalty with expr + copy + clinical Masp", trainedModel=Masp,rFiles=list(modelClassFile6,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList6)
-submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso with penalty with expr + copy + clinical OncotypeDx", trainedModel=OncomapDx,rFiles=list(modelClassFile7,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList7)
+submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso with penalty with expr + copy + clinical OncotypeDX", trainedModel=OncomapDx,rFiles=list(modelClassFile7,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList7)
 submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso with penalty with expr + copy + clinical Mammaprint", trainedModel=Mammaprint,rFiles=list(modelClassFile8,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList8)
 submitCompetitionModel_micmaTrained_InSock(modelName = "Lasso with penalty with expr + copy + clinical Masp Clinical GII", trainedModel=MaspCGII,rFiles=list(modelClassFile9,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList9)
 

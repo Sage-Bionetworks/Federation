@@ -4,6 +4,7 @@ rm(list = ls())
 ### step 1: loadLibraries
 ###################################################
 library(predictiveModeling)
+library(federationPLoSRevision)
 library(BCC)
 synapseLogin("in.sock.jang@sagebase.org","tjsDUD@")
 
@@ -152,7 +153,7 @@ myGeneList3 = "Metabric Clustering"
 myGeneList4 = "Higgins" 
 myGeneList5 = "Top-varying" 
 myGeneList6 = "MASP" 
-myGeneList7 = "OncomapDx" 
+myGeneList7 = "OncotypeDx" 
 myGeneList8 = "Mammaprint" 
 myGeneList9 = "MASP + GII" 
 
@@ -162,7 +163,7 @@ submitCompetitionModel_MetabricTrained_InSock(modelName = "Lasso without penalty
 submitCompetitionModel_MetabricTrained_InSock(modelName = "Lasso without penalty with expr + copy Higgins", trainedModel=TopvaringHiggins,rFiles=list(modelClassFile4,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList4)
 submitCompetitionModel_MetabricTrained_InSock(modelName = "Lasso without penalty with expr + copy Top-varying", trainedModel=Topvaring,rFiles=list(modelClassFile5,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList5)
 submitCompetitionModel_MetabricTrained_InSock(modelName = "Lasso without penalty with expr + copy Masp", trainedModel=Masp,rFiles=list(modelClassFile6,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList6)
-submitCompetitionModel_MetabricTrained_InSock(modelName = "Lasso without penalty with expr + copy OncomapDx", trainedModel=OncomapDx,rFiles=list(modelClassFile7,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList7)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Lasso without penalty with expr + copy OncotypeDx", trainedModel=OncomapDx,rFiles=list(modelClassFile7,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList7)
 submitCompetitionModel_MetabricTrained_InSock(modelName = "Lasso without penalty with expr + copy Mammaprint", trainedModel=Mammaprint,rFiles=list(modelClassFile8,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList8)
 submitCompetitionModel_MetabricTrained_InSock(modelName = "Lasso without penalty with expr + copy Masp GII", trainedModel=MaspGII,rFiles=list(modelClassFile9,modelClassFile,modelClassFile0), algorithm = "lasso", geneList= myGeneList9)
 

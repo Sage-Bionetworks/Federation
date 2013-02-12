@@ -153,7 +153,7 @@ myGeneList3 = "Metabric Clustering"
 myGeneList4 = "Higgins" 
 myGeneList5 = "Top-varying" 
 myGeneList6 = "MASP" 
-myGeneList7 = "OncotypeDx" 
+myGeneList7 = "OncotypeDX" 
 myGeneList8 = "Mammaprint" 
 myGeneList9 = "MASP + GII" 
 
@@ -164,7 +164,7 @@ submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without p
 submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Higgins", trainedModel=TopvaringHiggins,rFiles=list(modelClassFile4,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList4)
 submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Top-varying", trainedModel=Topvaring,rFiles=list(modelClassFile5,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList5)
 submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Masp", trainedModel=Masp,rFiles=list(modelClassFile6,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList6)
-submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy OncotypeDx", trainedModel=OncomapDx,rFiles=list(modelClassFile7,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList7)
+submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy OncotypeDX", trainedModel=OncomapDx,rFiles=list(modelClassFile7,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList7)
 submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Mammaprint", trainedModel=Mammaprint,rFiles=list(modelClassFile8,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList8)
 submitCompetitionModel_MetabricTrained_InSock(modelName = "Elastic Net without penalty with expr + copy Masp + GII", trainedModel=MaspGII,rFiles=list(modelClassFile9,modelClassFile,modelClassFile0), algorithm = "enet", geneList= myGeneList9)
 

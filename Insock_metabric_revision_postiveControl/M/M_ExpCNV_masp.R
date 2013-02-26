@@ -16,7 +16,7 @@ M_ExpCNV_masp <- setRefClass(Class = "M_ExpCNV_masp",
                             
                             controlled<-loadEntity("syn1670951")
                             name<-controlled$objects$masp_names
-                            name<-union(paste(name,"_expr",sep=""),paste(name,"_copy",sep=""))                            
+                            name<-setdiff(union(paste(name,"_expr",sep=""),paste(name,"_copy",sep="")),"2099_eg_expr")                          
                             pos<-match(name,rownames(featureData))
                             POS<-pos[which(is.na(pos)==0)]
                             
@@ -38,7 +38,7 @@ M_ExpCNV_masp <- setRefClass(Class = "M_ExpCNV_masp",
                             
                             controlled<-loadEntity("syn1670951")
                             name<-controlled$objects$masp_names
-                            name<-union(paste(name,"_expr",sep=""),paste(name,"_copy",sep=""))                            
+                            name<-setdiff(union(paste(name,"_expr",sep=""),paste(name,"_copy",sep="")),"2099_eg_expr")                          
                             pos<-match(name,rownames(featureData))
                             POS<-pos[which(is.na(pos)==0)]
                             

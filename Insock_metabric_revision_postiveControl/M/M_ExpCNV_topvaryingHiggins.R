@@ -16,7 +16,7 @@ M_ExpCNV_topvaryingHiggins <- setRefClass(Class = "M_ExpCNV_topvaryingHiggins",
                             
                             controlled<-loadEntity("syn1670947")
                             name<-controlled$objects$topvarying_higgins_names
-                            name<-union(paste(name,"_expr",sep=""),paste(name,"_copy",sep=""))                            
+                            name<-setdiff(union(paste(name,"_expr",sep=""),paste(name,"_copy",sep="")),"2099_eg_expr")                      
                             pos<-match(name,rownames(featureData))
                             POS<-pos[which(is.na(pos)==0)]
                             
@@ -37,7 +37,7 @@ M_ExpCNV_topvaryingHiggins <- setRefClass(Class = "M_ExpCNV_topvaryingHiggins",
                             
                             controlled<-loadEntity("syn1670947")
                             name<-controlled$objects$topvarying_higgins_names
-                            name<-union(paste(name,"_expr",sep=""),paste(name,"_copy",sep=""))                            
+                            name<-setdiff(union(paste(name,"_expr",sep=""),paste(name,"_copy",sep="")),"2099_eg_expr")                         
                             pos<-match(name,rownames(featureData))
                             POS<-pos[which(is.na(pos)==0)]
                             

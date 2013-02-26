@@ -16,7 +16,7 @@ M_ExpCNV_Mamaprint <- setRefClass(Class = "M_ExpCNV_Mamaprint",
                             
                             controlled<-loadEntity("syn1671415")
                             name<-controlled$objects$Mamaprint
-                            name<-paste(name,"_expr",sep="")
+                            name<-setdiff(paste(name,"_expr",sep=""),"2099_eg_expr")
                             pos<-match(name,rownames(featureData))
                             POS<-pos[which(is.na(pos)==0)]
                             
@@ -38,7 +38,7 @@ M_ExpCNV_Mamaprint <- setRefClass(Class = "M_ExpCNV_Mamaprint",
                             
                             controlled<-loadEntity("syn1671415")
                             name<-controlled$objects$Mamaprint
-                            name<-paste(name,"_expr",sep="")
+                            name<-setdiff(paste(name,"_expr",sep=""),"2099_eg_expr")
                             pos<-match(name,rownames(featureData))
                             POS<-pos[which(is.na(pos)==0)]
                             

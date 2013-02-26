@@ -4,7 +4,7 @@ require(devtools)
 require(ROCR)
 
 submitCompetitionModel_MetabricTrained_InSock_positiveControl <- function(modelName = NULL, trainedModel=NULL,
-                                                rFiles=NULL, algorithm=NULL, geneList=NULL, cvPerformance=NULL, parentDatasetId = "syn1682333"){
+                                                rFiles=NULL, algorithm=NULL, geneList=NULL, cvPerformance=NULL, parentDatasetId = "syn1687665"){
   
   submittedModelLayer <- Data(list(name = modelName, parentId = parentDatasetId))
   

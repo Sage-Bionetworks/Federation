@@ -6,7 +6,7 @@ rm(list = ls())
 library(predictiveModeling)
 library(federationPLoSRevision)
 library(BCC)
-synapseLogin("in.sock.jang@sagebase.org","tjsDUD@")
+synapseLogin()
 
 
 ###################################################ac
